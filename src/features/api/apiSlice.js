@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const apiSlice = createApi({
     reducerPath: 'apiSlice',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3500' }),
-    tagTypes: ['Todo'],
+    tagTypes: ['Todos'],
     endpoints: (builder) => ({
         getTodoss: builder.query({
             query: () => '/todosa',
@@ -12,7 +12,7 @@ export const apiSlice = createApi({
         }),
         addTodo: builder.mutation({
             query: (todo) => ({
-                url: '/todos',
+                url: '/todosa',
                 method: 'POST',
                 body: todo
             }),
@@ -20,7 +20,7 @@ export const apiSlice = createApi({
         }),
         updateTodo: builder.mutation({
             query: (todo) => ({
-                url: `/todos/${todo.id}`,
+                url: `/todosa/${todo.id}`,
                 method: 'PATCH',
                 body: todo
             }),
@@ -28,7 +28,7 @@ export const apiSlice = createApi({
         }),
         deleteTodo: builder.mutation({
             query: ({ id }) => ({
-                url: `/todos/${id}`,
+                url: `/todosa/${id}`,
                 method: 'DELETE',
                 body: id
             }),
