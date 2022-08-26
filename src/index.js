@@ -11,9 +11,16 @@ ReactDOM.createRoot(document.getElementById('root'))
   .render(
     <React.StrictMode>
       
-        <ApiProvider api={apiSlice}>
+        
           <App />
-        </ApiProvider>
-      
+        
+
+       
+
     </React.StrictMode>
   );
+
+
+  // <ApiProvider api={apiSlice}>
+  //         <App />
+  //       </ApiProvider>
