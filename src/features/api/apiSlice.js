@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const apiSlice = createApi({
-    reducerPath: 'api',
+    reducerPath: 'apiSlice',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3500' }),
     tagTypes: ['Todo'],
     endpoints: (builder) => ({
-        getTodos: builder.query({
-            query: () => '/todos',
+        getTodoss: builder.query({
+            query: () => '/todosa',
             transformResponse: res => res.sort((a, b) => b.id - a.id),
             providesTags: ['Todos']
         }),
@@ -38,7 +38,7 @@ export const apiSlice = createApi({
 })
 
 export const {
-    useGetTodosQuery,
+    useGetTodossQuery,
     useAddTodoMutation,
     useUpdateTodoMutation,
     useDeleteTodoMutation

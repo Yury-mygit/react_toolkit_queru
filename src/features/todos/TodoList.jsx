@@ -1,27 +1,26 @@
 import {
-    useGetTodosQuery,
+    useGetTodossQuery,
     useUpdateTodoMutation,
     useDeleteTodoMutation,
     useAddTodoMutation
 } from "../api/apiSlice"
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faUpload } from '@fortawesome/free-solid-svg-icons'
 import { useState } from "react"
-
-
 
 const TodoList = () => {
     const [newTodo, setNewTodo] = useState('')
 
     const {
-        data: todos,
+        data: todosss,
         isLoading,
         isSuccess,
         isError,
         error
-    } = useGetTodosQuery()
+    } = useGetTodossQuery()
 
-   
+    console.log(todosss)
 
     const [addTodo] = useAddTodoMutation()
     const [updateTodo] = useUpdateTodoMutation()
@@ -55,7 +54,7 @@ const TodoList = () => {
     if (isLoading) {
         content = <p>Loading...</p>
     } else if (isSuccess) {
-        content = todos.map(todo => { //JSON.stringify(todos)
+        content = todosss.map(todo => { //JSON.stringify(todos)
             return (
                 <article key={todo.id}>
                     <div className="todo">
